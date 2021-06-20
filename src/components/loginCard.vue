@@ -1,7 +1,7 @@
 <template>
     <v-container 
-    style="width: 750px;
-           height: 100vh;
+    style="width: 50vw;
+            height: 100vh;
            display: flex"
     justify="center"
     align="center">
@@ -14,7 +14,7 @@
     >
     <v-card ref="form" class="elevation-10">
         <v-img
-              src="https://lh3.googleusercontent.com/proxy/3S6hdnfvcgiYWSEz0FFOCcM62vFNlOBGgLjHpL-0IWDuOfPUb3C0eQd-0c6t4LQw1eX_vvJKOQzZOBeETmyYkbFLjaYFHonWA-e2WkGe5Dvv00FySXZVDxvPQhluE3lk"
+              src="../assets/logo.png"
               height="300"
               contain
             ></v-img>
@@ -30,11 +30,17 @@
             label="Username"
             required
           ></v-text-field>
-             <v-text-field
+              <v-text-field
             v-model="password"
-            name="Password"
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            :rules="[rules.required, rules.min]"
+            :type="show1 ? 'text' : 'password'"
+            name="input-10-1"
             label="Password"
-            type="password"
+            hint="At least 8 characters"
+            counter
+            @click:append="show1 = !show1"
+            class="mb-3"
           ></v-text-field>
            <v-btn
            block
@@ -50,3 +56,22 @@
     </v-row>
   </v-container>
 </template>
+
+
+<script>
+  export default {
+    data () {
+      return {
+        show1: false,
+        show2: true,
+        show3: false,
+        show4: false,
+        rules: {
+          required: value => !!value || 'Required.',
+          min: v => v.length >= 8 || 'Min 8 characters',
+          emailMatch: () => (`The email and password you entered don't match`),
+        },
+      }
+    },
+  }
+</script>

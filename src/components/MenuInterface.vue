@@ -1,14 +1,14 @@
 <template>
-  <v-card height="100%">
     <v-navigation-drawer
       absolute
       permanent
       left
+      class="elevation-10"
     >
       <template v-slot:prepend>
         <v-list-item two-line>
           <v-list-item-avatar>
-            <img src="https://lh3.googleusercontent.com/proxy/DLIzw1_3DgbqL9vVcTt9krfmO1bOuqggTBXxTwDUnubmlbDhjMSfiYNvf9MinaL5N1XedCavKkZUOIETBMCjS1H6Q5pByIimLJL_IdjcrVYMzj-k7RCd3gnfZG41zRbH">
+            <img src="../assets/logo.png">
           </v-list-item-avatar>
 
           <v-list-item-content>
@@ -37,13 +37,14 @@
       </v-list>
       <v-btn
       color="red"
+      style="color: #fff"
       to="/"
       block>
           Logout
       </v-btn>
     </v-navigation-drawer>
-  </v-card>
 </template>
+
 
 <script>
   export default {
